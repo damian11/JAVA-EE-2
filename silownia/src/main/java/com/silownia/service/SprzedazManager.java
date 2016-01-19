@@ -24,4 +24,12 @@ public class SprzedazManager {
   	klient.getKarnety().add(karnet);
   	}
 
+
+
+      @SuppressWarnings("unchecked")
+      public List<Karnet> getKarnety() {
+        return em.createNamedQuery("Karnet").getResultList();
+      }
+
+  
 }
