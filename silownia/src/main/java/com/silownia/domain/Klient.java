@@ -1,4 +1,4 @@
-package com.example.jeedemo.domain;
+
 
 import java.util.ArrayList;
 import java.util.Date;
