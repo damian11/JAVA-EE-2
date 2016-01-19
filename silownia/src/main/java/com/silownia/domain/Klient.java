@@ -55,6 +55,14 @@ public class Klient {
 	public void setNazwisko(String nazwisko) {
 		this.nazwisko = nazwisko;
 	}
+	
+	@Size(min = 4, max = 30)
+	public String getTelefon() {
+		return telefon;
+	}
+	public void setTelefon(String telefon) {
+		this.telefon = telefon;
+	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	public List<Klient> getKlient() {
