@@ -39,5 +39,15 @@ public class KlientFormBean implements Serializable {
   		this.klient = klient;
   	}
 
+  	public ListDataModel<Klient> getAllKlient() {
+  		klienci.setWrappedData(km.getAllKlient());
+  		return klienci;
+  	}
 
+  	public ListDataModel<Karnet> getOwnedKarnet() {
+  		ownedKarnety.setWrappedData(km.getOwnedKarnety(KlientToShow));
+  		return ownedKarnety;
+  	}
+
+  
 }
