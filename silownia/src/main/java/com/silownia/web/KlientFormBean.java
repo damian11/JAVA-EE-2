@@ -49,5 +49,14 @@ public class KlientFormBean implements Serializable {
   		return ownedKarnety;
   	}
 
-  
+
+
+    public String addKlient() {
+      km.addKlient(klient);
+      return "showKlienci";
+
+    }
+
+
+
 }
