@@ -57,6 +57,21 @@ public class KlientFormBean implements Serializable {
 
     }
 
+    public String deleteKlient() {
+      Klient klientToDelete = klienci.getRowData();
+      km.deleteKlient(klientToDelete);
+      return null;
+    }
 
+    public String showDetails() {
+      klientToShow = klienci.getRowData();
+      return "details";
+    }
+
+    public String disposeKarnet(){
+      Karnet karnetToDispose = ownedKlienci.getRowData();
+      sm.disposeKarnet(klientToShow, karnetToDispose);
+      return null;
+    }
 
 }
