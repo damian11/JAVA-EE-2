@@ -17,4 +17,27 @@ import com.silownia.service.KarnetManager;
 public class KlientFormBean implements Serializable {
 
 
+  	private static final long serialVersionUID = 1L;
+
+  	private Klient klient = new klient();
+  	private ListDataModel<Klient> klienci = new ListDataModel<Klient>();
+
+  	private Klient KlientToShow = new Klient();
+  	private ListDataModel<Karnet> ownedKarnety = new ListDataModel<Karnet>();
+
+
+  	@Inject
+  	private KlientManager km;
+
+  	@Inject
+  	private SprzedazManager sm;
+
+  	public Klient getKlient() {
+  		return klient;
+  	}
+  	public void setKlient(Klient klient) {
+  		this.klient = klient;
+  	}
+
+
 }
