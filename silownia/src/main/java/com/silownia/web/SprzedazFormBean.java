@@ -23,7 +23,7 @@ public class SprzedazFormBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private SellingManager sm;
+	private SprzedazManager sm;
 
 	@Inject
 	private KlientManager km;
@@ -44,5 +44,16 @@ public class SprzedazFormBean implements Serializable {
 		this.id_klient = id_klient;
 	}
 
+	public List<Karnet> getAvailableKarnety() {
+		return sm.getAvailableKarnety();
+	}
 
+	public List<Klient> getAllKleint() {
+		return km.getAllKlient();
+	}
+
+	public String sellKarnet() {
+		sm.sellKarnet(id_klient, id_karnet);
+		return null;
+	}
 }
