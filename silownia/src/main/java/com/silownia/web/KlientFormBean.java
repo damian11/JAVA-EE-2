@@ -8,7 +8,7 @@ import javax.inject.Named;
 
 import com.silownia.domain.Karnet;
 import com.silownia.domain.Klient;
-import com.silownia.service.PersonManager;
+
 import com.silownia.service.KlientManager;
 import com.silownia.service.SprzedazManager;
 import com.silownia.service.KarnetManager;
