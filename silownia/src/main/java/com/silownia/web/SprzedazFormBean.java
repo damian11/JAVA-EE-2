@@ -20,6 +20,29 @@ import com.silownia.service.KarnetManager;
 @Named("sprzedazBean")
 public class SprzedazFormBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
+	@Inject
+	private SellingManager sm;
+
+	@Inject
+	private KlientManager km;
+
+	private Long id_karnet;
+	private Long id_klient;
+
+	public Long getId_karnet() {
+		return id_karnet;
+	}
+	public void setId_karnet(Long id_karnet) {
+		this.id_karnet = id_karnet;
+	}
+	public Long getId_klient() {
+		return id_klient;
+	}
+	public void setId_klient(Long id_klient) {
+		this.id_klient = id_klient;
+	}
 
 
 }

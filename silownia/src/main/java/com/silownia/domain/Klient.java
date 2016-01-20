@@ -33,11 +33,11 @@ public class Klient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long getId() {
-		return id;
+	public Long getId_klient() {
+		return id_klient;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setId_klient(Long id) {
+		this.id_klient = id_klient;
 	}
 
 	@Size(min = 1, max = 50)

@@ -17,7 +17,7 @@ public class KlientManager {
 	EntityManager em;
 
 	public void addKlient(Klient klient) {
-		klient.setId(null);
+		klient.setId_klient(null);
 		em.persist(klient);
 	}
 
@@ -32,7 +32,7 @@ public class KlientManager {
 	}
 
 	public List<Karnet> getOwnedKarnet(Klient klient) {
-		klient = em.find(Klient.class, klient.getId());
+		klient = em.find(Klient.class, klient.getId_klient());
 		// lazy loading here - try this code without this (shallow) copying
 		List<Karnet> karnety = new ArrayList<Karnet>(klient.getKarnety());
 		return karnety;
