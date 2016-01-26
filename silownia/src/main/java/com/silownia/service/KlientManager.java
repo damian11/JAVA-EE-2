@@ -7,35 +7,47 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
+import org.hibernate.Hibernate;
+
+import com.silownia.KlientDAO;
+import com.silownia.KarnetDAO;
 import com.silownia.domain.Karnet;
 import com.silownia.domain.Klient;
 
 @Stateless
-public class KlientManager {
+public class KlientManager implements KlientDAO {
+
 
 	@PersistenceContext
 	EntityManager em;
 
-	public void addKlient(Klient klient) {
-		klient.setId_klient(null);
+	public Klient addKlient(Klient klient) {
 		em.persist(klient);
+	  em.flush();
+
+		return klient;
 	}
 
 	public void deleteKlient(Klient klient) {
-		klient = em.find(Klient.class, klient.getId());
-		em.remove(klient);
+	  em.remove(em.getReference(Klient.class, klient.getId_klient()));
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<Klient> getAllKlient() {
-		return em.createNamedQuery("klient.all").getResultList();
-	}
+	public Klient updateKlient(Klient klient)
+    {
+        return em.merge(klient);
+    }
 
-	public List<Karnet> getOwnedKarnet(Klient klient) {
-		klient = em.find(Klient.class, klient.getId_klient());
-		// lazy loading here - try this code without this (shallow) copying
-		List<Karnet> karnety = new ArrayList<Karnet>(klient.getKarnety());
-		return karnety;
-	}
 
+
+    public List<Klient> getAllKlient()
+    {
+        return em.createNamedQuery("klient.getAll").getResultList();
+    }
+
+    public Klient getKlientByID(Long id)
+    {
+        return em.find(Klient.class, id);
+    }
+}
 }
