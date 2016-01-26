@@ -61,4 +61,24 @@ public class KlientResource {
 
           return Response.status(Response.Status.OK).build();
       }
+
+
+
+      @POST
+      @Path("/updateKlient")
+      public Response updateKlient(
+            @FormParam("id_klient") long id_klient,
+            @FormParam("imie") String imie,
+            @FormParam("nazwisko") String nazwisko,
+            @FormParam("telefon") String telefon)
+      {
+          Klient klient = new Klient();
+          klient.setId_klient(id_klient);
+          klient.setImie(imie);
+          klient.setNazwisko(nazwisko);
+          klient.setTelefon(telefon);
+          klientManager.updateKlient(klient);
+
+          return Response.status(Response.Status.OK).build();
+      }
 }
