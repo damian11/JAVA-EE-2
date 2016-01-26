@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Edycja karnetu</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+</head>
+<body>
+                                <div><a href="../AllKarnet.html"><img src="../karnet.png"></a></div>
+                                <div><a href="../AllKlient.html"><img src="../klient.png"></a></div>
+
+<form action="/silownia/rest/karnet/updateKarnet" method="post">
+    <input type="text" id="id_karnetId" name="id_karnet" style="visibility: hidden;"/>
+  <table>
+            <td>Edycja produktu</td>
+
+        <tr>
+            <td>ID:</td>
+            <td id="id_karnet"></td>
+        </tr>
+        <tr>
+            <td>Rodzaj</td>
+            <td><input type="text" name="rodzaj" id="rodzajId"/></td>
+        </tr>
+        <tr>
+            <td>Opis</td>
+            <td><input type="text" name="opis" id="opisId"/></td>
+        </tr>
+        <tr>
+            <td>Cena</td>
+            <td><input type="text" name="cena" id="cenaId"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value=" ZAPISZ ZMIANY " align="right"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Usuwanie produktu</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+</head>
+<body>
+
+                      <div><a href="../AllKarnet.html"><img src="../karnet.png"></a></div>
+                      <div><a href="../AllKlient.html"><img src="../klient.png"></a></div>
+
+<form action="/silownia/rest/karnet/deleteKarnet" method="post">
+    <input type="text" id="id_karnetId" name="id_karnet" style="visibility: hidden;"/>
+    <table>
+            <td >Usuwanie produktu</td>
+        <tr>
+            <td>Id</td>
+            <td id="id_karnet"></td>
+        </tr>
+        <tr>
+            <td>Rodzaj</td>
+            <td id="rodzaj"></td>
+        </tr>
+        <tr>
+            <td>Opis</td>
+            <td id="opis"></td>
+        </tr>
+        <tr>
+            <td>Cena</td>
+            <td id="cena"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value=" USUŃ " align="right"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
