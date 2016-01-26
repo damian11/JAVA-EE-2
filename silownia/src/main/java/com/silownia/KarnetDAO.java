@@ -5,4 +5,9 @@ import java.util.List;
 
 public interface KarnetDAO {
 
+      List<Karnet> getAllKarnet();
+      Karnet addKarnet(Karnet karnet);
+      void deleteKarnet(Karnet karnet);
+      Karnet updateKarnet(Karnet karnet);
+      Product getKarnetByID(Long id);
 }
