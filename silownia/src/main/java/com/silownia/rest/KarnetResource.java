@@ -36,4 +36,37 @@ public class KarnetResource {
         return Response.status(Response.Status.CREATED).build();
     }
 
+
+
+    @GET
+    @Path("/getKarnet/{id_karnet}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Karnet getKarnetByID(@PathParam("id_karnet") Long id_karnet) {
+        return karnetManager.getKarnetByID(id_karnet);
+    }
+
+    @GET
+    @Path("/getAllKarnet")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Karnet> getAllKarnet() {
+        return karnetManager.getAllKarnet();
+    }
+
+
+
+
+    @POST
+    @Path("/deleteKarnet")
+    public Response deleteKarnet(@FormParam("id_karnet") long id_karnet)
+    {
+        Karnet karnet = new Karnet();
+        karnet.setId_karnet(id_karnet);
+
+        karnetManager.deleteKarnet(karnet);
+
+        return Response.status(Response.Status.OK).build();
+    }
+
+
+  
 }
