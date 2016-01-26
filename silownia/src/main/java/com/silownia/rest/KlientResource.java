@@ -15,4 +15,26 @@ import java.util.List;
 @Path("/klient")
 public class KlientResource {
 
+      @EJB
+      private KlientDAO klientManager;
+
+      @POST
+      @Path("/addKlient")
+      public Response addKlient(
+          @FormParam("imie") String imie,
+          @FormParam("nazwisko") String nazwisko,
+          @FormParam("telefon") String telefon)
+
+      {
+          Klient klient = new Klient();
+          klient.setImie(imie);
+          klient.setNazwisko(nazwisko);
+          klient.setTelefon(telefon);
+
+          klientManager.addKlient(klient);
+
+          return Response.status(Response.Status.CREATED).build();
+      }
+
+    
 }
