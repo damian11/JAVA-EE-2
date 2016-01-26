@@ -19,11 +19,13 @@ import javax.validation.constraints.Size;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "person.all", query = "Select p from Person p")
+	@NamedQuery(name = "klient.getAll", query = "Select kl from Klient kl")
+	@NamedQuery(name = "klient.getByID", query = "Select kl from Klient kl where kl.id_klient = :id_klient"),
 })
+
 public class Klient {
 
-	private Long id;
+	private Long id_klient;
 
 	private String imie = "brak";
 	private String nazwisko = "brak";

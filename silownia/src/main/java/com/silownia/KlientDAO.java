@@ -9,6 +9,6 @@ public interface KlientDAO {
   Klient addKlient(Klient klient);
   void deleteKlient(Klient klient);
   Klient updateKlient(Klient klient);
-  Klient getKlientByID(int id);
+  Klient getKlientByID(int id_klient);
 
 }

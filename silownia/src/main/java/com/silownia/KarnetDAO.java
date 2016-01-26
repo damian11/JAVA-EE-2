@@ -9,5 +9,5 @@ public interface KarnetDAO {
       Karnet addKarnet(Karnet karnet);
       void deleteKarnet(Karnet karnet);
       Karnet updateKarnet(Karnet karnet);
-      Product getKarnetByID(Long id);
+      Karnet getKarnetByID(long id_karnet);
 }
