@@ -36,5 +36,29 @@ public class KlientResource {
           return Response.status(Response.Status.CREATED).build();
       }
 
-    
+      @GET
+      @Path("/getAllKlient")
+      @Produces(MediaType.APPLICATION_JSON)
+      public List<Klient> getAllKlient() {
+          return klientManager.getAllKlient();
+      }
+
+      @GET
+      @Path("/getKlient/{id_klient}")
+      @Produces(MediaType.APPLICATION_JSON)
+      public Klient getKlientByID(@PathParam("id_klient") Long id_klient) {
+          return klientManager.getKlientByID(id_klient);
+      }
+
+      @POST
+      @Path("/deleteKlient")
+      public Response deleteKlient(@FormParam("id_klient") long id_klient)
+      {
+          Klient klient = new Klient();
+
+          klient.setId_klient(id_klient);
+          klientManager.deleteKlient(klient);
+
+          return Response.status(Response.Status.OK).build();
+      }
 }
