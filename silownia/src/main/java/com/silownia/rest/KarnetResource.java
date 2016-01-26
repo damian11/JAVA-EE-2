@@ -67,6 +67,24 @@ public class KarnetResource {
         return Response.status(Response.Status.OK).build();
     }
 
+    @POST
+    @Path("/updateKarnet")
+    public Response updateKarnet(
+    @FormParam("id_karnet") long id_karnet,
+    @FormParam("rodzaj") String rodzaj,
+    @FormParam("opis") String opis,
+    @FormParam("cena") double cena)
+{
+      Karnet karnet = new Karnet();
+      karnet.setId_karnet(id_karnet);
+      karnet.setRodzaj(rodzaj);
+      karnet.setOpis(opis);
+      karnet.setCena(cena);
 
-  
+
+        karnetManager.updateKarnet(karnet);
+
+        return Response.status(Response.Status.OK).build();
+    }
+
 }
