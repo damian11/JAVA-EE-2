@@ -1,9 +1,9 @@
-
+package com.silownia.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import org.codehaus.jackson.annotate.JsonIgnore;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,9 +18,11 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table (name = "Klient")
 @NamedQueries({
-	@NamedQuery(name = "klient.getAll", query = "Select kl from Klient kl")
-	@NamedQuery(name = "klient.getByID", query = "Select kl from Klient kl where kl.id_klient = :id_klient"),
+	@NamedQuery(name = "klient.getAll", query = "Select kl from Klient kl"),
+	@NamedQuery(name = "klient.getKlientByID", query = "Select kl from Klient kl where kl.id_klient = :id_klient"),
+	@NamedQuery(name = "klient.getKarnetByID", query = "Select kl from Klient kl where kl.karnet = :id_karnet")
 })
 
 public class Klient {
@@ -30,8 +32,8 @@ public class Klient {
 	private String imie = "brak";
 	private String nazwisko = "brak";
 	private String telefon = "brak";
+	private Karnet karnet;
 
-	private List<Klient> klienci = new ArrayList<Klient>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -65,12 +67,17 @@ public class Klient {
 	public void setTelefon(String telefon) {
 		this.telefon = telefon;
 	}
+	@ManyToOne
+    @JoinColumn(name = "id_karnet")
+    public Karnet getKarnet(){
+        return karnet;
+    }
+    public void setKarnet(Karnet karnet){
+        this.karnet = karnet;
+    }
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	public List<Karnet> getKarnety() {
-		return karnety;
-	}
-	public void setKarnety(List<Karnet> karnety) {
-		this.karnety = karnety;
-	}
+
+
+
+
 }

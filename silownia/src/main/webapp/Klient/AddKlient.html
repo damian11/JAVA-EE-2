@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Dodawanie klienta</title>
+</head>
+<body>
+
+            <div><a href="../AllKarnet.html"><img src="../karnet.png"></a></div>
+            <div><a href="../AllKlient.html"><img src="../klient.png"></a></div>
+
+<form action="/silownia/rest/klient/addKlient" method="post">
+    <table>
+            <td>Dodawanie klienta</td>
+            <tr>
+              <td>Karnet</td>
+              <td><select name="karnet" id="id_karnet"></select></td>
+<              /tr>
+                    <tr>
+                        <td>Imie</td>
+                        <td><input type="text" name="imie"/></td>
+                    </tr>
+                    <tr>
+                        <td>Nazwisko</td>
+                        <td><input type="text" name="nazwisko"/></td>
+                    </tr>
+                    <tr>
+                        <td>Telefon</td>
+                        <td><input type="text" name="telefon"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value=" DODAJ " align="right"/></td>
+                    </tr>
+    </table>
+</form>
+
+</body>
+</html>
