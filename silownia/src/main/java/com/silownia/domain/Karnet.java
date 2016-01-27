@@ -1,14 +1,19 @@
 package com.silownia.domain;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+
+
+
 
 @Entity
 @NamedQueries({
-@NamedQuery(name = "karnet.getAll", query = "Select k from Karnet k"),
-@NamedQuery(name = "karnet.getByID", query = "Select k from Karnet k where k.id_karnet = :id_karnet")
+@NamedQuery(name = "karnet.getAllKarnet", query = "Select k from Karnet k"),
+@NamedQuery(name = "karnet.getKarnetById", query = "Select k from Karnet k where k.id_karnet = :id_karnet")
 })
 public class Karnet {
 
@@ -24,7 +29,7 @@ public class Karnet {
 public Long getId_karnet() {
   return id_karnet;
 }
-public void setId_karnet(Long id) {
+public void setId_karnet(Long id_karnet) {
   this.id_karnet = id_karnet;
 }
 public String getRodzaj() {

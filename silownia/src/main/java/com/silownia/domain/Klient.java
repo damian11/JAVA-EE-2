@@ -1,21 +1,10 @@
 package com.silownia.domain;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import org.codehaus.jackson.annotate.JsonIgnore;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table (name = "Klient")
@@ -28,10 +17,9 @@ import javax.validation.constraints.Size;
 public class Klient {
 
 	private Long id_klient;
-
-	private String imie = "brak";
-	private String nazwisko = "brak";
-	private String telefon = "brak";
+	private String imie;
+	private String nazwisko;
+	private String telefon;
 	private Karnet karnet;
 
 
@@ -44,7 +32,7 @@ public class Klient {
 		this.id_klient = id_klient;
 	}
 
-	@Size(min = 1, max = 50)
+
 	public String getImie() {
 		return imie;
 	}
@@ -52,7 +40,7 @@ public class Klient {
 		this.imie = imie;
 	}
 
-	@Size(min = 1, max = 80)
+
 	public String getNazwisko() {
 		return nazwisko;
 	}
@@ -60,7 +48,7 @@ public class Klient {
 		this.nazwisko = nazwisko;
 	}
 
-	@Size(min = 4, max = 30)
+
 	public String getTelefon() {
 		return telefon;
 	}
@@ -75,9 +63,4 @@ public class Klient {
     public void setKarnet(Karnet karnet){
         this.karnet = karnet;
     }
-
-
-
-
-
 }

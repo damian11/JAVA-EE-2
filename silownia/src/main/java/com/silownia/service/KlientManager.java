@@ -1,19 +1,10 @@
 package com.silownia.service;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-
-import org.hibernate.Hibernate;
-
+import com.silownia.domain.*;
 import com.silownia.KlientDAO;
-import com.silownia.KarnetDAO;
-import com.silownia.domain.Karnet;
-import com.silownia.domain.Klient;
+import java.util.List;
+import javax.ejb.Stateless;
 
 @Stateless
 public class KlientManager implements KlientDAO {
@@ -22,32 +13,39 @@ public class KlientManager implements KlientDAO {
 	@PersistenceContext
 	EntityManager em;
 
-	public Klient addKlient(Klient klient) {
+	public Klient addKlient(Klient klient)
+    {
 		em.persist(klient);
-	  em.flush();
+	    em.flush();
 
 		return klient;
 	}
 
-	public void deleteKlient(Klient klient) {
+	public void deleteKlient(Klient klient) 
+    {
 	  em.remove(em.getReference(Klient.class, klient.getId_klient()));
 	}
 
 	public Klient updateKlient(Klient klient)
     {
-        return em.merge(klient);
+        return (Klient)em.merge(klient);
     }
 
 
 
     public List<Klient> getAllKlient()
     {
-        return em.createNamedQuery("klient.getAll").getResultList();
+        return em.createNamedQuery("klient.getAllKlient").getResultList();
     }
 
-    public Klient getKlientByID(Long id)
+    public Klient getKlientById(Long id_klient)
     {
-        return em.find(Klient.class, id);
+        return em.find(Klient.class, id_klient);
     }
-}
+    
+    
+    	public List<Klient> getKlientaByKarnetId(Karnet karnet){
+        return em.createNamedQuery("klient.getKarnetById").
+            setParameter("id_karnet",karnet.getId_karnet()).getResultList();
+    }
 }

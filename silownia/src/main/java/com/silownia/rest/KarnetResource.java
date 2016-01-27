@@ -1,4 +1,4 @@
-package com.siłownia.rest;
+package com.silownia.rest;
 
 import com.silownia.KarnetDAO;
 import com.silownia.domain.Karnet;
@@ -41,8 +41,8 @@ public class KarnetResource {
     @GET
     @Path("/getKarnet/{id_karnet}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Karnet getKarnetByID(@PathParam("id_karnet") Long id_karnet) {
-        return karnetManager.getKarnetByID(id_karnet);
+    public Karnet getKarnetById(@PathParam("id_karnet") Long id_karnet) {
+        return karnetManager.getKarnetById(id_karnet);
     }
 
     @GET
