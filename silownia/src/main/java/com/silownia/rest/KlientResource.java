@@ -76,7 +76,7 @@ public class KlientResource {
             @FormParam("id_klient") long id_klient,
             @FormParam("imie") String imie,
             @FormParam("nazwisko") String nazwisko,
-            @FormParam("telefon") String telefon),
+            @FormParam("telefon") String telefon,
             @FormParam("karnet") String karnet)
       {
           Long id_karnet = Long.parseLong(karnet);        

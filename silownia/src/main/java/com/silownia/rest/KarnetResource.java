@@ -73,7 +73,7 @@ public class KarnetResource {
     @FormParam("id_karnet") long id_karnet,
     @FormParam("rodzaj") String rodzaj,
     @FormParam("opis") String opis,
-    @FormParam("cena") double cena)
+    @FormParam("cena") String cena)
 {
       Karnet karnet = new Karnet();
       karnet.setId_karnet(id_karnet);

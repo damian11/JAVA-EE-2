@@ -44,7 +44,7 @@ public String getOpis() {
 public void setOpis(String opis) {
   this.opis = opis;
 }
-public double getCena() {
+public String getCena() {
   return cena;
 }
 public void setCena(String cena) {
