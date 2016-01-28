@@ -3,6 +3,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>Dodawanie klienta</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="addKlient.js"></script>
 </head>
 <body>
 
@@ -11,10 +13,10 @@
 
 <form action="/silownia/rest/klient/addKlient" method="post">
     <table>
-            <td>Dodawanie klienta</td>
+            <tr><td>Dodawanie klienta</td></tr>
             <tr>
               <td>Karnet</td>
-              <td><select name="karnet" id="id_karnet"></select></td>
+              <td><select name="id_karnet" id="id_karnet"></select></td>
 <              /tr>
                     <tr>
                         <td>Imie</td>

@@ -1,11 +1,11 @@
 $(document).ready(function(){
-	var id = window.location.search.replace("?id=", "");
+	var id_karnet = window.location.search.replace("?id_karnet=", "");
 
 
-    $.get("/silownia/rest/karnet/getBilet/" + id, function(data, textStatus){
-       document.getElementById('id').innerHTML = data.id_karnet;
-       document.getElementById('imie').innerHTML = data.imie;
-       document.getElementById('nazwisko').innerHTML = data.nazwisko;
-       document.getElementById('telefon').innerHTML = data.telefon;
+    $.get("/silownia/rest/karnet/getBilet/" + id_karnet, function(data, textStatus){
+       document.getElementById('id_karnet').innerHTML = data.id_karnet;
+       document.getElementById('rodzaj').innerHTML = data.rodzaj;
+       document.getElementById('opis').innerHTML = data.opis;
+       document.getElementById('cena').innerHTML = data.cena;
     });
 });

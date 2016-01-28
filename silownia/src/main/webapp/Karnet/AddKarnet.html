@@ -2,34 +2,33 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Dodawanie karnetu</title>
+    <title>Dodanie karnetu</title>
 </head>
 <body>
 
-            <div><a href="../AllKarnet.html"><img src="../karnet.png"></a></div>
-            <div><a href="../AllKlient.html"><img src="../klient.png"></a></div>
+                <div><a href="../AllKarnet.html"><img src="../karnet.png"></a></div>
+                <div><a href="../AllKlient.html"><img src="../klient.png"></a></div>
 
-<form action="/silownia/rest/karnet/addKarnet" method="post">
+<form action="/silownia/rest/karnet/addKarnet" target="/silownia/AllKarnet.html" method="post">
     <table>
-            <td>Dodawanie karnetu</td>
-
-                    <tr>
+        <tr><td>Dodanie karnetu</td>
+        </tr>
+                        <tr>
                         <td>Rodzaj</td>
                         <td><input type="text" name="rodzaj"/></td>
-                    </tr>
-                    <tr>
-                        <td>Opis</td>
-                        <td><input type="text" name="opis"/></td>
-                    </tr>
-                    <tr>
+                        </tr>
+                                <tr>
+                                <td>Opis</td>
+                                <td><input type="text" name="opis"/></td>
+                                </tr>
+                        <tr>
                         <td>Cena</td>
                         <td><input type="text" name="cena"/></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value=" DODAJ " align="right"/></td>
-                    </tr>
-    </table>
+                        </tr>
+                        <tr>
+<td><a href="/kino/AllKarnet.html"><input type="submit" value=" DODAJ " align="right"/></a></td>
+                        </tr>
+</table>
 </form>
-
 </body>
 </html>
