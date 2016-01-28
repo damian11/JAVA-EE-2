@@ -7,26 +7,107 @@
 
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 </head>
+   
+<script>
+$(document).ready(function()
+		{
+		      $.get("/silownia/rest/karnet/getAllKarnet", function(data, textStatus)
+		      {
+		              var table = document.getElementById('presentationTable');
+		              for(var i in data) {
+		              var row = document.createElement("tr");
+                          
+		              var cellID = document.createElement("td"); 
+		              var cellIDText = document.createTextNode(data[i].id_karnet);
+                          
+		                    var cellNazwa = document.createElement("td");
+		                    var cellNazwaText = document.createTextNode(data[i].rodzaj);
+                          
+		                    var cellWielkosc = document.createElement("td");
+                                var cellWielkoscText = document.createTextNode(data[i].opis);
+                          
+                                var cellCena = document.createElement("td");
+                                var cellCenaText = document.createTextNode(data[i].cena);
+                          
+                                cellID.appendChild(cellIDText);
+                                cellNazwa.appendChild(cellNazwaText);
+                                cellWielkosc.appendChild(cellWielkoscText);
+                                cellCena.appendChild(cellCenaText);
+		  
+							//Read:
+							var cellRead = document.createElement("td");
+							var cellReadLink = document.createElement("a");
+
+							var cellReadPicture = document.createElement("img");
+							cellReadPicture.setAttribute('src', 'readKarnet.png');
+	
+							cellReadLink.appendChild(cellReadPicture);
+							cellReadLink.href = "/silowania/karnet/readKarnet.html?id_karnet="                   data[i].id_karnet;
+							cellRead.appendChild(cellReadLink);
+					
+					 //Update:
+                    var cellUpdate = document.createElement("td");
+                    var cellUpdateLink = document.createElement("a");
+
+                    var cellUpdatePicture = document.createElement("img");
+                    cellUpdatePicture.setAttribute('src', 'updateKarnet.png');
+
+                    cellUpdateLink.appendChild(cellUpdatePicture);
+                    cellUpdateLink.href = "/silownia/karnet/updateKarnet.html?id_karnet=" +                     data[i].id_karnet;
+                    cellUpdate.appendChild(cellUpdateLink);
+					
+					//Delete:
+                    var cellDelete = document.createElement("td");
+                    var cellDeleteLink = document.createElement("a");
+
+                    var cellDeletePicture = document.createElement("img");
+                    cellDeletePicture.setAttribute('src', 'deleteKarnet.png');
+
+                    cellDeleteLink.appendChild(cellDeletePicture);
+                    cellDeleteLink.href = "/silownia/karnet/deleteKarnet.html?id_karnet=" +                     data[i].id_karnet;
+                    cellDelete.appendChild(cellDeleteLink);
+
+                                    row.appendChild(cellID);
+
+                                    row.appendChild(cellNazwa);
+
+                                    row.appendChild(cellWielkosc);
+
+                                    row.appendChild(cellCena);
+
+                                    row.appendChild(cellRead);
+
+                                    row.appendChild(cellUpdate);
+
+                                    row.appendChild(cellDelete);
+
+                                    table.appendChild(row);
+		          }
+		   });
+});
+</script>
+</head>
 
 <body>
 
-            <div><a href="AllKarnet.html"><img src="karnet.png"></a></div>
-            <div><a href="AllKlient.html"><img src="klient.png"></a></div>
+	<center>
+		<a href="./karnet/addKarnet.html"><img src="dodajKarnet.png">Dodaj bilet></a>
+	</center>
 
+    <table class="presentationTable" id="presentationTable" align="center">
+                            <tr class="tableheader" id="tableheader">
+                                <td>Id</td>
+                                
+                                <td>Nazwa</td>
+                                
+                                <td>Wielkosc</td>
+                                
+                                <td>Cena</td>
+                                
+                                <td>Działania</td>
+                            </tr>
+<div id="tablePlaceholder"></div>
 
-<tr>
-
-
-<a href="/karnet/addKarnet.html"><img src="karnetdodaj.png">Dodaj karnet></a>
-</tr>
-
-    <table>
-        <td>Id</td>
-        <td>Rodzaj</td>
-        <td>Opis</td>
-        <td>Cena</td>
     </table>
-
-           <div>Dodaj karnet</div>
 </body>
 </html>

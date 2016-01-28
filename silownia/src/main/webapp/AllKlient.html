@@ -3,26 +3,128 @@
 <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-      <title>Klienci</title>
+      <title>Karnety</title>
 
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+</head>
+   
+<script>
+$(document).ready(function()
+		{
+		      $.get("/silownia/rest/karnet/getAllKlient", function(data, textStatus)
+		      {
+		              var table = document.getElementById('presentationTable');
+		              for(var i in data) {
+		              var row = document.createElement("tr");
+                          
+		              var cellID = document.createElement("td"); 
+		              var cellIDText = document.createTextNode(data[i].id_klient);
+                          
+		      var cellKarnet = document.createElement("td")                                                   var cellKarnetText = document.createTextNode(data[i].karnet.rodzaj);
+                          
+		                    var cellImie = document.createElement("td");
+                                var cellImieText = document.createTextNode(data[i].imie);
+                          
+                                var cellNazwisko = document.createElement("td");
+                    var cellNazwiskoText = document.createTextNode(data[i].nazwisko);
+                          
+                          
+                          					var cellTelefon = document.createElement("td");
+                    var cellTelefonText = document.createTextNode(data[i].telefon);
+                          
+                                cellID.appendChild(cellIDText);
+                                cellKarnet.appendChild(cellKarnetText);
+                                cellImie.appendChild(cellImieText);
+                                cellNazwisko.appendChild(cellNazwiskoText);
+                                cellTelefon.appendChild(cellTelefonText);
+
+                          
+                          
+                          
+							//Read:
+							var cellRead = document.createElement("td");
+							var cellReadLink = document.createElement("a");
+
+							var cellReadPicture = document.createElement("img");
+							cellReadPicture.setAttribute('src', 'readKarnet.png');
+	
+							cellReadLink.appendChild(cellReadPicture);
+							cellReadLink.href = "/silowania/klient/readKlient.html?id_klient="                   data[i].id_klient;
+							cellRead.appendChild(cellReadLink);
+					
+					 //Update:
+                    var cellUpdate = document.createElement("td");
+                    var cellUpdateLink = document.createElement("a");
+
+                    var cellUpdatePicture = document.createElement("img");
+                    cellUpdatePicture.setAttribute('src', 'updateKarnet.png');
+
+                    cellUpdateLink.appendChild(cellUpdatePicture);
+                    cellUpdateLink.href = "/silownia/klient/updateKlient.html?id_klient=" +                     data[i].id_klient;
+                    cellUpdate.appendChild(cellUpdateLink);
+					
+					//Delete:
+                    var cellDelete = document.createElement("td");
+                    var cellDeleteLink = document.createElement("a");
+
+                    var cellDeletePicture = document.createElement("img");
+                    cellDeletePicture.setAttribute('src', 'deleteKarnet.png');
+
+                    cellDeleteLink.appendChild(cellDeletePicture);
+                    cellDeleteLink.href = "/silownia/klient/deleteKlient.html?id_karnet=" +                     data[i].id_karnet;
+                    cellDelete.appendChild(cellDeleteLink);
+
+
+                                            row.appendChild(cellID);
+                          
+                                            row.appendChild(cellKarnet);
+                          
+                                            row.appendChild(cellImie);
+                          
+                                            row.appendChild(cellNazwisko);
+                          
+                                            row.appendChild(cellTelefon);
+                          
+                                            row.appendChild(cellRead);
+                          
+                                            row.appendChild(cellUpdate);
+                          
+                                            row.appendChild(cellDelete);
+
+                                    table.appendChild(row);
+		          }
+		   });
+});
+</script>
 </head>
 
 <body>
 
-            <div><a href="AllKarnet.html"><img src="karnet.png"></a></div>
-            <div><a href="AllKlient.html"><img src="klient.png"></a></div>
+    	<div>
+		<a href="AllKlient.html"><img src="klient.png"></a></div>
+        <a href="AllKarnet.html"><img src="karnet.png"></a></div>
+	</div>
+    
+	<center>
+		<a href="./karnet/addKarnet.html"><img src="dodajKarnet.png">Dodaj karnet></a>
+	</center>
+
+    <table class="presentationTable" id="presentationTable" align="center">
+                            <tr class="tableheader" id="tableheader">
+                                    <td>Id Klienta</td>
+                                
+                                    <td>Karnet</td>
+                                
+                                    <td>Imie</td>
+                                
+                                    <td>Nazwisko</td>
+                                
+                                    <td>Telefon</td>
+                                
+                                    <td>Dzialania</td>
+                            </tr>
 
 
-<a href="/silownia/Klient/addKlient.html"><img src="dodajKlienta.png">Dodaj klienta></a>
-            
-
-    <table>
-        <td>Id</td>
-        <td>Imię</td>
-        <td>Nazwisko</td>
-        <td>Telefon</td>
     </table>
-
 </body>
 </html>
